@@ -12,9 +12,7 @@ import java.util.Random;
 
 
 public class wordcount extends AppCompatActivity {
-
-    private String randomWord;
-    private int attempts = 0;
+    
     private EditText editTextGuess;
     private TextView textViewHint;
     private TextView textViewAttempts;
@@ -35,8 +33,8 @@ public class wordcount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    String guess = editTextGuess.getText().toString();
-                    checkGuess(guess);
+                    String sentence = editTextGuess.getText().toString();
+                    checkGuess(sentence);
                 } catch (NumberFormatException e) {
                     Toast.makeText(wordcount.this, "Please enter a Sentence", Toast.LENGTH_SHORT).show();
                 }
@@ -44,10 +42,10 @@ public class wordcount extends AppCompatActivity {
         });
     }
 
-    private void checkGuess(String guess) {
+    private void checkGuess(String sentence) {
 
         // Split the input string into words using space as a delimiter
-        String[] words = guess.split(" ");
+        String[] words = sentence.split(" ");
 
         // Count the number of words
         int wordCount = words.length;
